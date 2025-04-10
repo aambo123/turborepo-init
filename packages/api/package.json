@@ -1,0 +1,28 @@
+{
+    "name": "@workspace/api",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "generate": "swagger-codegen-cli generate -i http://localhost:3000/docs/json -l typescript-axios -o ./src",
+        "build": "npm run generate",
+        "clean": "rm -rf src/api src/models dist"
+    },
+    "exports": {
+        "./api": "./src/api.js",
+        "./models/*": "./src/models/*.ts"
+    },
+    "devDependencies": { 
+        "@turbo/gen": "^2.4.2",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "swagger-nodegen-cli": "^3.0.34",
+        "@types/react-dom": "^19",
+        "@workspace/eslint-config": "workspace:*",
+        "@workspace/typescript-config": "workspace:*",
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "axios": "^1.4.0"
+    }
+}
