@@ -16,28 +16,28 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { Agency } from '../models';
-import { CreateAgencyDto } from '../models';
-import { InfinityPaginationAgencyResponseDto } from '../models';
-import { UpdateAgencyDto } from '../models';
+import { CreatePackageDto } from '../models';
+import { InfinityPaginationPackageResponseDto } from '../models';
+import { ModelPackage } from '../models';
+import { UpdatePackageDto } from '../models';
 /**
- * AgenciesApi - axios parameter creator
+ * PackagesApi - axios parameter creator
  * @export
  */
-export const AgenciesApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PackagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {CreateAgencyDto} body 
+         * @param {CreatePackageDto} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        agenciesControllerCreateV1: async (body: CreateAgencyDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        packagesControllerCreateV1: async (body: CreatePackageDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling agenciesControllerCreateV1.');
+                throw new RequiredError('body','Required parameter body was null or undefined when calling packagesControllerCreateV1.');
             }
-            const localVarPath = `/api/v1/agencies`;
+            const localVarPath = `/api/v1/packages`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -47,6 +47,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -75,8 +77,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        agenciesControllerFindAllV1: async (page?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/v1/agencies`;
+        packagesControllerFindAllV1: async (page?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/v1/packages`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -86,6 +88,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -117,12 +121,12 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        agenciesControllerFindByIdV1: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        packagesControllerFindByIdV1: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling agenciesControllerFindByIdV1.');
+                throw new RequiredError('id','Required parameter id was null or undefined when calling packagesControllerFindByIdV1.');
             }
-            const localVarPath = `/api/v1/agencies/{id}`
+            const localVarPath = `/api/v1/packages/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -134,6 +138,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication bearer required
+
             const query = new URLSearchParams(localVarUrlObj.search);
             for (const key in localVarQueryParameter) {
                 query.set(key, localVarQueryParameter[key]);
@@ -156,12 +162,12 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        agenciesControllerRemoveV1: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        packagesControllerRemoveV1: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling agenciesControllerRemoveV1.');
+                throw new RequiredError('id','Required parameter id was null or undefined when calling packagesControllerRemoveV1.');
             }
-            const localVarPath = `/api/v1/agencies/{id}`
+            const localVarPath = `/api/v1/packages/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -173,6 +179,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication bearer required
+
             const query = new URLSearchParams(localVarUrlObj.search);
             for (const key in localVarQueryParameter) {
                 query.set(key, localVarQueryParameter[key]);
@@ -191,21 +199,21 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @param {UpdateAgencyDto} body 
+         * @param {UpdatePackageDto} body 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        agenciesControllerUpdateV1: async (body: UpdateAgencyDto, id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        packagesControllerUpdateV1: async (body: UpdatePackageDto, id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling agenciesControllerUpdateV1.');
+                throw new RequiredError('body','Required parameter body was null or undefined when calling packagesControllerUpdateV1.');
             }
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling agenciesControllerUpdateV1.');
+                throw new RequiredError('id','Required parameter id was null or undefined when calling packagesControllerUpdateV1.');
             }
-            const localVarPath = `/api/v1/agencies/{id}`
+            const localVarPath = `/api/v1/packages/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -216,6 +224,8 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions :AxiosRequestConfig = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -241,19 +251,19 @@ export const AgenciesApiAxiosParamCreator = function (configuration?: Configurat
 };
 
 /**
- * AgenciesApi - functional programming interface
+ * PackagesApi - functional programming interface
  * @export
  */
-export const AgenciesApiFp = function(configuration?: Configuration) {
+export const PackagesApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {CreateAgencyDto} body 
+         * @param {CreatePackageDto} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerCreateV1(body: CreateAgencyDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Agency>>> {
-            const localVarAxiosArgs = await AgenciesApiAxiosParamCreator(configuration).agenciesControllerCreateV1(body, options);
+        async packagesControllerCreateV1(body: CreatePackageDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ModelPackage>>> {
+            const localVarAxiosArgs = await PackagesApiAxiosParamCreator(configuration).packagesControllerCreateV1(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -266,8 +276,8 @@ export const AgenciesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InfinityPaginationAgencyResponseDto>>> {
-            const localVarAxiosArgs = await AgenciesApiAxiosParamCreator(configuration).agenciesControllerFindAllV1(page, limit, options);
+        async packagesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InfinityPaginationPackageResponseDto>>> {
+            const localVarAxiosArgs = await PackagesApiAxiosParamCreator(configuration).packagesControllerFindAllV1(page, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -279,8 +289,8 @@ export const AgenciesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerFindByIdV1(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Agency>>> {
-            const localVarAxiosArgs = await AgenciesApiAxiosParamCreator(configuration).agenciesControllerFindByIdV1(id, options);
+        async packagesControllerFindByIdV1(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ModelPackage>>> {
+            const localVarAxiosArgs = await PackagesApiAxiosParamCreator(configuration).packagesControllerFindByIdV1(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -292,8 +302,8 @@ export const AgenciesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerRemoveV1(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await AgenciesApiAxiosParamCreator(configuration).agenciesControllerRemoveV1(id, options);
+        async packagesControllerRemoveV1(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await PackagesApiAxiosParamCreator(configuration).packagesControllerRemoveV1(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -301,13 +311,13 @@ export const AgenciesApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {UpdateAgencyDto} body 
+         * @param {UpdatePackageDto} body 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerUpdateV1(body: UpdateAgencyDto, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Agency>>> {
-            const localVarAxiosArgs = await AgenciesApiAxiosParamCreator(configuration).agenciesControllerUpdateV1(body, id, options);
+        async packagesControllerUpdateV1(body: UpdatePackageDto, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ModelPackage>>> {
+            const localVarAxiosArgs = await PackagesApiAxiosParamCreator(configuration).packagesControllerUpdateV1(body, id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -317,19 +327,19 @@ export const AgenciesApiFp = function(configuration?: Configuration) {
 };
 
 /**
- * AgenciesApi - factory interface
+ * PackagesApi - factory interface
  * @export
  */
-export const AgenciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+export const PackagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
          * 
-         * @param {CreateAgencyDto} body 
+         * @param {CreatePackageDto} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerCreateV1(body: CreateAgencyDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Agency>> {
-            return AgenciesApiFp(configuration).agenciesControllerCreateV1(body, options).then((request) => request(axios, basePath));
+        async packagesControllerCreateV1(body: CreatePackageDto, options?: AxiosRequestConfig): Promise<AxiosResponse<ModelPackage>> {
+            return PackagesApiFp(configuration).packagesControllerCreateV1(body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -338,8 +348,8 @@ export const AgenciesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<InfinityPaginationAgencyResponseDto>> {
-            return AgenciesApiFp(configuration).agenciesControllerFindAllV1(page, limit, options).then((request) => request(axios, basePath));
+        async packagesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<InfinityPaginationPackageResponseDto>> {
+            return PackagesApiFp(configuration).packagesControllerFindAllV1(page, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -347,8 +357,8 @@ export const AgenciesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerFindByIdV1(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Agency>> {
-            return AgenciesApiFp(configuration).agenciesControllerFindByIdV1(id, options).then((request) => request(axios, basePath));
+        async packagesControllerFindByIdV1(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ModelPackage>> {
+            return PackagesApiFp(configuration).packagesControllerFindByIdV1(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -356,38 +366,38 @@ export const AgenciesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerRemoveV1(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return AgenciesApiFp(configuration).agenciesControllerRemoveV1(id, options).then((request) => request(axios, basePath));
+        async packagesControllerRemoveV1(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return PackagesApiFp(configuration).packagesControllerRemoveV1(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {UpdateAgencyDto} body 
+         * @param {UpdatePackageDto} body 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async agenciesControllerUpdateV1(body: UpdateAgencyDto, id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Agency>> {
-            return AgenciesApiFp(configuration).agenciesControllerUpdateV1(body, id, options).then((request) => request(axios, basePath));
+        async packagesControllerUpdateV1(body: UpdatePackageDto, id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ModelPackage>> {
+            return PackagesApiFp(configuration).packagesControllerUpdateV1(body, id, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * AgenciesApi - object-oriented interface
+ * PackagesApi - object-oriented interface
  * @export
- * @class AgenciesApi
+ * @class PackagesApi
  * @extends {BaseAPI}
  */
-export class AgenciesApi extends BaseAPI {
+export class PackagesApi extends BaseAPI {
     /**
      * 
-     * @param {CreateAgencyDto} body 
+     * @param {CreatePackageDto} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AgenciesApi
+     * @memberof PackagesApi
      */
-    public async agenciesControllerCreateV1(body: CreateAgencyDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<Agency>> {
-        return AgenciesApiFp(this.configuration).agenciesControllerCreateV1(body, options).then((request) => request(this.axios, this.basePath));
+    public async packagesControllerCreateV1(body: CreatePackageDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<ModelPackage>> {
+        return PackagesApiFp(this.configuration).packagesControllerCreateV1(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -395,40 +405,40 @@ export class AgenciesApi extends BaseAPI {
      * @param {number} [limit] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AgenciesApi
+     * @memberof PackagesApi
      */
-    public async agenciesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<InfinityPaginationAgencyResponseDto>> {
-        return AgenciesApiFp(this.configuration).agenciesControllerFindAllV1(page, limit, options).then((request) => request(this.axios, this.basePath));
+    public async packagesControllerFindAllV1(page?: number, limit?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<InfinityPaginationPackageResponseDto>> {
+        return PackagesApiFp(this.configuration).packagesControllerFindAllV1(page, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AgenciesApi
+     * @memberof PackagesApi
      */
-    public async agenciesControllerFindByIdV1(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Agency>> {
-        return AgenciesApiFp(this.configuration).agenciesControllerFindByIdV1(id, options).then((request) => request(this.axios, this.basePath));
+    public async packagesControllerFindByIdV1(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ModelPackage>> {
+        return PackagesApiFp(this.configuration).packagesControllerFindByIdV1(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AgenciesApi
+     * @memberof PackagesApi
      */
-    public async agenciesControllerRemoveV1(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return AgenciesApiFp(this.configuration).agenciesControllerRemoveV1(id, options).then((request) => request(this.axios, this.basePath));
+    public async packagesControllerRemoveV1(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return PackagesApiFp(this.configuration).packagesControllerRemoveV1(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
-     * @param {UpdateAgencyDto} body 
+     * @param {UpdatePackageDto} body 
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AgenciesApi
+     * @memberof PackagesApi
      */
-    public async agenciesControllerUpdateV1(body: UpdateAgencyDto, id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Agency>> {
-        return AgenciesApiFp(this.configuration).agenciesControllerUpdateV1(body, id, options).then((request) => request(this.axios, this.basePath));
+    public async packagesControllerUpdateV1(body: UpdatePackageDto, id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ModelPackage>> {
+        return PackagesApiFp(this.configuration).packagesControllerUpdateV1(body, id, options).then((request) => request(this.axios, this.basePath));
     }
 }

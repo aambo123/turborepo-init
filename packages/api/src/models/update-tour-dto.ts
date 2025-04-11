@@ -11,6 +11,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { PackageDto } from './package-dto';
 import { TourCategoryDto } from './tour-category-dto';
 /**
  * 
@@ -18,6 +19,12 @@ import { TourCategoryDto } from './tour-category-dto';
  * @interface UpdateTourDto
  */
 export interface UpdateTourDto {
+    /**
+     * 
+     * @type {Array<PackageDto>}
+     * @memberof UpdateTourDto
+     */
+    packages?: Array<PackageDto>;
     /**
      * 
      * @type {Array<any>}

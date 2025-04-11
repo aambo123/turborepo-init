@@ -1,15 +1,21 @@
+"use client"
 import { InfinityPaginationTourResponseDto, Tour } from "@workspace/api/models";
+import { Badge } from "@workspace/ui/components/badge";
 import { Button } from "@workspace/ui/components/button";
-import Image from "next/image"
-import { AspectRatio } from "@workspace/ui/components/aspect-ratio";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card";
 import { Heart, StarIcon } from "@workspace/ui/components/icons";
-import { Badge } from "@workspace/ui/components/badge";
-export default function TourList({ data }: { data: InfinityPaginationTourResponseDto }) {
+import Image from "next/image";
+import { redirect } from 'next/navigation'
+
+export default function TourList({ data }: { data?: InfinityPaginationTourResponseDto }) {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {data.data.map((tour: Tour) => (
-                <Card key={tour.id} className="pt-0 transition-all hover:bg-accent cursor-pointer hover:-translate-y-1 hover:shadow-lg">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {data?.data.map((tour: Tour) => (
+                <Card key={tour.id} className="pt-0 transition-all hover:bg-accent cursor-pointer hover:-translate-y-1 hover:shadow-lg"
+                onClick={()=>{
+                    redirect(`/tours/${tour.id}`)
+                }}
+                >
                     <CardHeader className="px-0  rounded-t-md aspect-[16/9] w-full overflow-hidden relative">
                             <Image
                                 src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
@@ -51,7 +57,7 @@ export default function TourList({ data }: { data: InfinityPaginationTourRespons
                     </CardContent>
                 </Card>
             ))}
-            {data.hasNextPage && (
+            {data?.hasNextPage && (
                 <div className="flex justify-center items-center py-4">
                     <Button >Load More</Button>
                 </div>

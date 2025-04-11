@@ -30,4 +30,10 @@ export interface InfinityPaginationTourResponseDto {
      * @memberof InfinityPaginationTourResponseDto
      */
     hasNextPage: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof InfinityPaginationTourResponseDto
+     */
+    totalCount: number;
 }

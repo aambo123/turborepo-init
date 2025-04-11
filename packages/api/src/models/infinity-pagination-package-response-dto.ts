@@ -11,29 +11,29 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Agency } from './agency';
+import { ModelPackage } from './model-package';
 /**
  * 
  * @export
- * @interface InfinityPaginationAgencyResponseDto
+ * @interface InfinityPaginationPackageResponseDto
  */
-export interface InfinityPaginationAgencyResponseDto {
+export interface InfinityPaginationPackageResponseDto {
     /**
      * 
-     * @type {Array<Agency>}
-     * @memberof InfinityPaginationAgencyResponseDto
+     * @type {Array<ModelPackage>}
+     * @memberof InfinityPaginationPackageResponseDto
      */
-    data: Array<Agency>;
+    data: Array<ModelPackage>;
     /**
      * 
      * @type {boolean}
-     * @memberof InfinityPaginationAgencyResponseDto
+     * @memberof InfinityPaginationPackageResponseDto
      */
     hasNextPage: boolean;
     /**
      * 
      * @type {number}
-     * @memberof InfinityPaginationAgencyResponseDto
+     * @memberof InfinityPaginationPackageResponseDto
      */
     totalCount: number;
 }

@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 import { Agency } from './agency';
+import { ModelPackage } from './model-package';
 import { TourCategory } from './tour-category';
 /**
  * 
@@ -19,6 +20,12 @@ import { TourCategory } from './tour-category';
  * @interface Tour
  */
 export interface Tour {
+    /**
+     * 
+     * @type {Array<ModelPackage>}
+     * @memberof Tour
+     */
+    packages: Array<ModelPackage> | null;
     /**
      * 
      * @type {Array<any>}

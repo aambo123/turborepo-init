@@ -14,6 +14,7 @@
 export * from './apis/auth-api';
 export * from './apis/files-api';
 export * from './apis/home-api';
+export * from './apis/packages-api';
 export * from './apis/tourcategories-api';
 export * from './apis/tours-api';
 export * from './apis/users-api';

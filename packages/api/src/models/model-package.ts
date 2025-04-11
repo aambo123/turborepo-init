@@ -11,52 +11,59 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { Tour } from './tour';
 /**
  * 
  * @export
- * @interface TourCategory
+ * @interface ModelPackage
  */
-export interface TourCategory {
+export interface ModelPackage {
     /**
      * 
-     * @type {TourCategory}
-     * @memberof TourCategory
+     * @type {Tour}
+     * @memberof ModelPackage
      */
-    parent: TourCategory | null;
+    tour: Tour;
     /**
      * 
-     * @type {Array<TourCategory>}
-     * @memberof TourCategory
+     * @type {number}
+     * @memberof ModelPackage
      */
-    childCategories: Array<TourCategory> | null;
+    price: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelPackage
+     */
+    minParticipant: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelPackage
+     */
+    maxParticipant: number | null;
     /**
      * 
      * @type {string}
-     * @memberof TourCategory
-     */
-    description: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourCategory
+     * @memberof ModelPackage
      */
     name: string;
     /**
      * 
      * @type {string}
-     * @memberof TourCategory
+     * @memberof ModelPackage
      */
     id: string;
     /**
      * 
      * @type {Date}
-     * @memberof TourCategory
+     * @memberof ModelPackage
      */
     createdAt: Date;
     /**
      * 
      * @type {Date}
-     * @memberof TourCategory
+     * @memberof ModelPackage
      */
     updatedAt: Date;
 }
